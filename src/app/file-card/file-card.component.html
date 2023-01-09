@@ -1,0 +1,52 @@
+<form (submit)="onAddFile(fileForm)" #fileForm="ngForm" class="fileForm">
+  <div class="row col-md-offset-2">
+    <div class="col-md-3 box">
+
+      <mat-form-field>
+        <mat-label>שם קובץ</mat-label>
+        <input matInput type="text" [(ngModel)]="enteredFileName" required [ngModelOptions]="{standalone: true}">
+        <span *ngIf="enteredFileName != ''"class="error">שדה חובה </span>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 box">
+      <mat-form-field>
+        <mat-label>סוג קובץ</mat-label>
+        <input matInput type="text" [(ngModel)]="enteredFileType" required [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <span *ngIf="enteredFileName != ''"class="error">שדה חובה </span>
+    </div>
+    <div class="col-md-3 box">
+      <mat-form-field>
+        <mat-label>גודל קובץ</mat-label>
+        <input matInput type="number"  [(ngModel)]="enteredFileSize" required [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <span *ngIf="enteredFileSize > 0"class="error">שדה חובה </span>
+    </div>
+  </div>
+  <div class="row col-md-offset-2">
+    <div class="col-md-3 box">
+      <mat-form-field appearance="fill">
+        <mat-label>תאריך חיבור </mat-label>
+        <input matInput [matDatepicker]="enteredCeatedDate" (focus)="enteredCeatedDate.open()">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+  
+        <mat-datepicker #enteredCeatedDate></mat-datepicker>
+      </mat-form-field>
+
+    </div>
+    <div class="col-md-3 box">
+      <mat-form-field>
+        <mat-label>מחבר</mat-label>
+        <input matInput type="text" ngModel #enteredAuthor="ngModel" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 box cbDiv">
+      <input type="checkbox" ngModel #enteredIsEncrypted="ngModel" [ngModelOptions]="{standalone: true}">
+      <mat-label> קובץ מוצפן </mat-label>
+    </div>
+  </div>
+  <div>
+    <button mat-button type="submit" color="accent" class="btn btn-primary">שמירה</button>
+  </div>
+
+</form>

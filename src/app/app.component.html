@@ -1,0 +1,9 @@
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/he/2/2f/Ministry_of_Justice.svg" border="0" class="header" />
+</header>
+<main>
+
+  <app-file-card (fileCreated)="onFileAdded($event)"></app-file-card>
+  <app-files-panel [filesList]="storeFiles"></app-files-panel>
+
+</main>
